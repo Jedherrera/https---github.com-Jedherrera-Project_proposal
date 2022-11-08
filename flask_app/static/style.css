@@ -1,0 +1,67 @@
+.flex-container {
+    display: space-between;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.button_1 {
+    width: 100%;
+    height: 50px;
+
+    position: relative;
+    text-align: right;
+}
+
+.button_logout {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    text-align: right;
+}
+
+.btn {
+    border: solid black;
+}
+
+.container {
+    margin: 5%;
+    padding: 2%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    margin: 15px;
+}
+
+.with-border {
+    border: 2px solid black;
+}
+
+.white {
+    background-color: white;
+}
+
+.grey {
+    background-color: rgb(182, 182, 182);
+}
+
+.with-margins {
+    margin: 20px;
+}
+
+.with-padding {
+    padding: 20px;
+}
+
+.half-width {
+    width: 48%;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}

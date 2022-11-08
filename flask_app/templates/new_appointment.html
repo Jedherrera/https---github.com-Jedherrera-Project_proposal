@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>New Appointment</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container row">
+            <div class="col-8">
+                <h1>Mediary</h1>
+                <h3>Your Medical Diary</h3>
+                <br>
+                <h2> Welcome, {{user.first_name}} {{user.last_name}}</h2>
+            </div>
+
+
+            <div class="col">
+                <div class="container">
+
+                    <a href="/mediarys/home" class="btn btn-outline-secondary">Home</a>
+                    <a href="/logout" class="btn btn-outline-secondary">Log Out</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-container">
+            <h2>New Appointment</h2>
+        </div>
+        <br>
+        <div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p class="error">{{message}}</p>
+            {% endfor %}
+            {% endif %}
+
+            {% endwith %}
+        </div>
+
+        <form action="/appointment" method="post" class="with-border">
+            <div>
+
+                <div class="form-group half-width">
+                    <label for="appointment_date" class="form-label">Date:</label>
+                    <input type="date" class="form-control" name="appointment_date" id="appointment_date">
+                </div>
+
+                <div class="form-group half-width">
+                    <label for="appointment_location" class="form-label">Location: </label>
+                    <input type="text" name="appointment_location" class="form-control" id="appointment_location">
+                </div>
+
+                <div class="form-group">
+                    <label for="appointment_description" class="form-label">Description</label>
+                    <textarea type="text" class="form-control" name="appointment_description"
+                        id="appointment_description" rows="5"></textarea>
+                </div>
+
+
+                <input type="hidden" name="user_id" value="{{session['user_id']}}">
+                <div class="form-group">
+
+                    <div class="form-group">
+                        <input type="submit" class="btn-dark" value="Submit">
+                    </div>
+                </div>
+
+        </form>
+    </div>
+
+
+</body>
+
+</html>
